@@ -2,7 +2,8 @@
 const fs = require('fs'), path = require('path');
 const ROOT = path.resolve(__dirname, '..');
 const BASE = process.env.MEDIA_BASE || 'https://raw.githubusercontent.com/ssairamh-arch/ig-content/main/media';
-const queue = fs.readdirSync(path.join(ROOT, 'posts')).filter(f => f.endsWith('.json')).sort().map(f => {
+const only = process.argv.slice(2);
+const queue = fs.readdirSync(path.join(ROOT, 'posts')).filter(f => f.endsWith('.json') && (!only.length || only.includes(f.slice(0, -5)))).sort().map(f => {
   const p = JSON.parse(fs.readFileSync(path.join(ROOT, 'posts', f), 'utf8'));
   const dir = path.join(ROOT, 'media', p.id);
   const media = (p.type === 'reel' || p.type === 'motion')

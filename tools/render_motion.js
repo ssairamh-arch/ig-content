@@ -97,8 +97,8 @@ window.setT=function(t){
   await page.screenshot({ path: path.join(out, 'cover.jpg'), type: 'jpeg', quality: 92 });
   await browser.close();
   execFileSync('ffmpeg', ['-y', '-framerate', String(FPS), '-i', path.join(frames, '%05d.jpg'),
-    '-f', 'lavfi', '-i', 'anullsrc=channel_layout=stereo:sample_rate=44100', '-shortest',
-    '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-profile:v', 'high', '-b:v', '5M', '-c:a', 'aac',
+    ...(fs.existsSync(path.join(out, 'audio.wav')) ? ['-i', path.join(out, 'audio.wav')] : ['-f', 'lavfi', '-i', 'anullsrc=channel_layout=stereo:sample_rate=44100']), '-shortest',
+    '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-profile:v', 'high', '-b:v', '5M', '-c:a', 'aac', '-b:a', '160k',
     '-movflags', '+faststart', path.join(out, 'reel.mp4')], { stdio: 'ignore' });
   fs.rmSync(frames, { recursive: true, force: true });
   console.log(`rendered ${id}: ${n} frames, ${total}s`);

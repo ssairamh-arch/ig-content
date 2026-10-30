@@ -1,0 +1,37 @@
+{
+ "id": "2026-10-31-keep-me-in-your-thoughts",
+ "date": "2026-10-31",
+ "type": "motion",
+ "keyword": "FREELANCE",
+ "scenes": [
+  {
+   "kind": "hook",
+   "title": "Please keep me in your thoughts. I have **14 client emails** to write today.",
+   "seconds": 6.5,
+   "vo": "Please keep me in your thoughts. I have fourteen client emails to write today."
+  },
+  {
+   "kind": "text",
+   "title": "Or I could paste **this**.",
+   "seconds": 2.6,
+   "vo": "Or. I could paste this."
+  },
+  {
+   "kind": "prompt",
+   "kicker": "When a client says",
+   "title": "\"Just one more small change\"",
+   "prompt": "Write a reply to a client who asked for one more small change after final approval. Stay friendly. Say what the original scope covered. Offer the extra work for a fixed price of [price]. End with one yes or no question. Client: [name]. Project: [project].",
+   "tip": "Clients answer yes or no questions.",
+   "seconds": 16,
+   "vo": "This one's for when a client says, can you just make one more small change? You tell the AI to stay friendly, say what was in the original scope, put a fixed price on the extra, and end on one yes or no question. Thirty seconds, not thirty minutes."
+  },
+  {
+   "kind": "cta",
+   "kicker": "49 more like this",
+   "title": "Get **AI for Freelancers**",
+   "seconds": 6,
+   "vo": "I put fifty of these in a PDF. Comment FREELANCE, and I'll send it to you."
+  }
+ ],
+ "caption": "The \"one more small change\" email, handled. 😮‍💨\n\nThe trick is the last line: one yes or no question. Clients answer those.\n\nThis is one of 50 prompts in AI for Freelancers, covering pitching, pricing, scope, and getting paid.\n\n💬 Comment FREELANCE and I'll DM you the link.\n\nEdit every draft so it sounds like you.\n\n#freelancing #freelancetips #chatgptprompts #claudeai #clientwork #smallbusiness #sidehustle"
+}
