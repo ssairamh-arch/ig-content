@@ -1,23 +1,25 @@
-// Body of the n8n Code node "Create Gumroad drafts". Creates each product in gumroad/products.json as an UNPUBLISHED draft,
-// skipping names that already exist, and returns Gumroad's answer (or its error text) per product.
+// Body of the n8n Code node "Create Gumroad drafts". Creates each product in gumroad/products.json as an UNPUBLISHED draft.
+// n8n's Code node has no URLSearchParams and ignores `form`, so the form body is built by hand. Arrays use key[]=value.
 const cfg = $('Config').first().json;
 const products = $input.all().map(i => i.json);
-const http = (method, url, form) => this.helpers.httpRequest({ method, url, headers: { Authorization: `Bearer ${cfg.gumroadToken}` }, form, json: true });
-
-let existing = [];
-try { existing = (await http('GET', 'https://api.gumroad.com/v2/products')).products.map(p => p.name); }
-catch (e) { return [{ json: { step: 'list products', error: e.message, body: e.response?.body ?? e.description ?? null } }]; }
+const headers = { Authorization: `Bearer ${cfg.gumroadToken}`, 'Content-Type': 'application/x-www-form-urlencoded' };
+const show = (e) => ({ error: e.message, status: e.httpCode ?? e.statusCode ?? null, body: e.response?.body ?? e.cause?.response?.body ?? e.description ?? null });
+const form = (o) => Object.entries(o).flatMap(([k, v]) => Array.isArray(v)
+  ? v.map(x => `${encodeURIComponent(k)}[]=${encodeURIComponent(x)}`)
+  : [`${encodeURIComponent(k)}=${encodeURIComponent(v)}`]).join('&');
 
 const out = [];
 for (const p of products) {
-  if (existing.includes(p.name)) { out.push({ json: { name: p.name, status: 'already exists, skipped' } }); continue; }
+  const body = form({
+    name: p.name,
+    price: String(Math.round(p.price_usd * 100)),
+    description: p.description,
+    tags: p.tags || [],
+    published: 'false',
+  });
   try {
-    const r = await http('POST', 'https://api.gumroad.com/v2/products', {
-      name: p.name, price: Math.round(p.price_usd * 100), description: p.description,
-      tags: (p.tags || []).join(','), published: 'false',
-    });
-    if (!r.success) { out.push({ json: { name: p.name, status: 'NOT created', gumroad_said: r } }); continue; }
-    out.push({ json: { name: p.name, status: 'draft created', id: r.product?.id, url: r.product?.short_url, published: r.product?.published, raw: r.product } });
-  } catch (e) { out.push({ json: { name: p.name, status: 'failed', error: e.message, body: e.response?.body ?? null } }); }
+    const r = await this.helpers.httpRequest({ method: 'POST', url: 'https://api.gumroad.com/v2/products', headers, body, json: true });
+    out.push({ json: { step: 'create', name: p.name, gumroad_said: r } });
+  } catch (e) { out.push({ json: { step: 'create failed', name: p.name, ...show(e) } }); }
 }
 return out;
