@@ -1,0 +1,105 @@
+{
+  "name": "Gumroad Draft Creator",
+  "nodes": [
+    {
+      "parameters": {},
+      "name": "Run manually",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1",
+              "name": "gumroadToken",
+              "value": "PASTE_GUMROAD_ACCESS_TOKEN_HERE",
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "name": "Config",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        220,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://raw.githubusercontent.com/ssairamh-arch/ig-content/main/gumroad/products.json",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          }
+        }
+      },
+      "name": "Get products",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        440,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Body of the n8n Code node \"Create Gumroad drafts\". Creates each product in gumroad/products.json as an UNPUBLISHED draft,\n// skipping names that already exist, and returns Gumroad's answer (or its error text) per product.\nconst cfg = $('Config').first().json;\nconst products = $input.first().json.products ?? $input.first().json;\nconst http = (method, url, form) => this.helpers.httpRequest({ method, url, headers: { Authorization: `Bearer ${cfg.gumroadToken}` }, form, json: true });\n\nlet existing = [];\ntry { existing = (await http('GET', 'https://api.gumroad.com/v2/products')).products.map(p => p.name); }\ncatch (e) { return [{ json: { step: 'list products', error: e.message, body: e.response?.body ?? e.description ?? null } }]; }\n\nconst out = [];\nfor (const p of products) {\n  if (existing.includes(p.name)) { out.push({ json: { name: p.name, status: 'already exists, skipped' } }); continue; }\n  try {\n    const r = await http('POST', 'https://api.gumroad.com/v2/products', {\n      name: p.name, price: Math.round(p.price_usd * 100), description: p.description,\n      tags: (p.tags || []).join(','), published: 'false',\n    });\n    out.push({ json: { name: p.name, status: 'draft created', id: r.product?.id, url: r.product?.short_url } });\n  } catch (e) { out.push({ json: { name: p.name, status: 'failed', error: e.message, body: e.response?.body ?? null } }); }\n}\nreturn out;\n"
+      },
+      "name": "Create Gumroad drafts",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        660,
+        0
+      ]
+    }
+  ],
+  "connections": {
+    "Run manually": {
+      "main": [
+        [
+          {
+            "node": "Config",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Config": {
+      "main": [
+        [
+          {
+            "node": "Get products",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get products": {
+      "main": [
+        [
+          {
+            "node": "Create Gumroad drafts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  }
+}

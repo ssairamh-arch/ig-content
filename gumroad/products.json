@@ -1,0 +1,8 @@
+[
+  {
+    "name": "TEST - delete me",
+    "price_usd": 1,
+    "description": "<p>API test product. Safe to delete.</p>",
+    "tags": ["test"]
+  }
+]
