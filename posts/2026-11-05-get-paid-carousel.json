@@ -1,0 +1,15 @@
+{
+  "id": "2026-11-05-get-paid-carousel",
+  "date": "2026-11-05",
+  "type": "carousel",
+  "keyword": "FREELANCE",
+  "slides": [
+    {"kind": "hook", "kicker": "For freelancers", "title": "4 prompts for when a client **hasn't paid you**", "sub": "Copy, fill in the brackets, send. Save this for the next late invoice."},
+    {"kind": "prompt", "n": 1, "title": "The invoice email", "prompt": "Write a short email to send with invoice #[number] for $[amount] for [project]. Include the due date of [date], accepted payment methods: [list], and a thank-you line.", "tip": "a clear email gets paid faster than a bare attachment."},
+    {"kind": "prompt", "n": 2, "title": "The friendly reminder", "prompt": "Write a friendly reminder for invoice #[number], which was due [X] days ago. Assume it was an oversight. Include the amount and how to pay. Under 60 words.", "tip": "most late payments are forgotten, not refused."},
+    {"kind": "prompt", "n": 3, "title": "The firm second reminder", "prompt": "Write a second reminder for invoice #[number], now [X] days overdue. Stay polite but firm, say I'll pause further work until it's paid, and give a clear deadline.", "tip": "a deadline turns a request into a decision."},
+    {"kind": "prompt", "n": 4, "title": "Ask for a deposit next time", "prompt": "A new client hasn't paid a deposit yet. Write a short message that explains my standard [X]% deposit, why I use it, and how to pay, so I can book their start date.", "tip": "the best late-payment fix is a deposit upfront."},
+    {"kind": "cta", "kicker": "These are 4 of 50", "title": "Want all 50 prompts in **AI for Freelancers**?", "sub": "and I'll DM you the link."}
+  ],
+  "caption": "Chasing a late payment is awkward. A good script makes it easier. 👇\n\nHere are 4 prompts to use with ChatGPT or Claude:\n\n1️⃣ The invoice email\n2️⃣ The friendly reminder\n3️⃣ The firm second reminder\n4️⃣ Asking for a deposit next time\n\nSave this for your next invoice.\n\nThese come from AI for Freelancers, a 50-prompt PDF for finding clients, pitching, pricing, and getting paid.\n\n💬 Comment FREELANCE and I'll DM you the link.\n\nThese prompts help you draft faster. They don't guarantee payment, and they aren't legal advice.\n\n#freelancing #freelancetips #freelancerlife #smallbusiness #aiprompts #chatgptprompts #claudeai #invoicing #sidehustle"
+}

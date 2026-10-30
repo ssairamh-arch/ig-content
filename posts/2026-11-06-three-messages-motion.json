@@ -1,0 +1,13 @@
+{
+  "id": "2026-11-06-three-messages-motion",
+  "date": "2026-11-06",
+  "type": "motion",
+  "keyword": "FREELANCE",
+  "scenes": [
+    {"kind": "hook", "kicker": "Freelancers", "title": "3 messages you keep **putting off**", "seconds": 3},
+    {"kind": "list", "kicker": "Sound familiar?", "title": "The ones that **stall** a project", "items": ["Asking for the deposit", "Saying no to extra work", "Chasing the invoice"], "seconds": 5},
+    {"kind": "prompt", "title": "Say no to **extra work**", "prompt": "A client asked for [extra request] that isn't in our scope: [paste scope]. Write a polite reply that explains it's outside the current scope, offers to quote it separately at $[price], and keeps the relationship warm.", "tip": "you protect your time without sounding rigid.", "seconds": 8},
+    {"kind": "cta", "kicker": "47 more where that came from", "title": "Get **AI for Freelancers**", "seconds": 4.5}
+  ],
+  "caption": "The messages you put off are usually the ones that cost you money. Here's a prompt for the middle one. ✍️\n\nPaste it into ChatGPT or Claude, fill in the brackets, and edit the draft so it sounds like you.\n\n💬 Comment FREELANCE and I'll DM you the link to all 50 prompts in AI for Freelancers.\n\n#freelancing #freelancetips #freelancerlife #aiprompts #chatgptprompts #claudeai #smallbusiness #clientwork"
+}
