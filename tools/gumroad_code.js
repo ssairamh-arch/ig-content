@@ -9,7 +9,11 @@ const form = (o) => Object.entries(o).flatMap(([k, v]) => Array.isArray(v)
   : [`${encodeURIComponent(k)}=${encodeURIComponent(v)}`]).join('&');
 
 const out = [];
+let existing = [];
+try { existing = (await this.helpers.httpRequest({ method: 'GET', url: 'https://api.gumroad.com/v2/products', headers, json: true })).products.map(p => p.name); }
+catch (e) { return [{ json: { step: 'list products failed', ...show(e) } }]; }
 for (const p of products) {
+  if (existing.includes(p.name)) { out.push({ json: { name: p.name, status: 'already exists, skipped' } }); continue; }
   const body = form({
     name: p.name,
     price: String(Math.round(p.price_usd * 100)),
