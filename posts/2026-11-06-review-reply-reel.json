@@ -1,0 +1,12 @@
+{
+  "id": "2026-11-06-review-reply-reel",
+  "date": "2026-11-06",
+  "type": "motion",
+  "keyword": "REVIEWS",
+  "scenes": [
+    {"kind": "hook", "title": "Same 1-star review. Two replies.", "seconds": 3},
+    {"kind": "compare", "title": "Which one keeps the **customer**?", "beforeLabel": "Reply 1", "before": "That's not what happened. We followed our policy. Maybe read it before you leave a review.", "afterLabel": "Reply 2, written with a prompt", "after": "Hi Sam, I'm sorry the wait was so long. That's not the visit we want you to have. I'd like to make it right. Please email us and we'll fix it.", "seconds": 12},
+    {"kind": "cta", "title": "Want the **review reply** prompt pack?", "dm": "Counted! The pack with the most comments gets built first.", "seconds": 4.5}
+  ],
+  "caption": "Same 1-star review, two replies. Everyone reading the reviews sees the second one. ⭐\n\nThe second reply comes from a short prompt: describe the review, your policy, and the tone you want, and ask for a calm, specific answer.\n\nOwn a local business? Comment REVIEWS and I'll build a pack of review-reply and local marketing prompts if enough of you ask.\n\nThe review and replies are examples.\n\n#smallbusiness #localbusiness #customerservice #restaurantowner #onlinereviews #chatgptprompts #claudeai #businessowner"
+}

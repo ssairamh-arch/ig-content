@@ -51,7 +51,7 @@ const els=POST.scenes.map((s,i)=>{const d=document.createElement('div');let f=FI
   if(s.kind==='list')d.innerHTML='<div class="mid" style="font-size:112px">'+words(s.title)+'</div>'+s.items.map((t,k)=>'<div class="item"><i>'+(k+1)+'</i><span>'+esc(t)+'</span></div>').join('');
   if(s.kind==='compare')d.innerHTML='<div class="mid" style="font-size:84px">'+words(s.title)+'</div><div class="cmp bef"><div class="tag">'+esc(s.beforeLabel||'Before')+'</div>'+esc(s.before)+'</div><div class="cmp after"><div class="tag">'+esc(s.afterLabel||'After')+'</div><span class="aft"></span></div>';
   if(s.kind==='stat')d.innerHTML='<div class="stat"><span class="n">0</span>'+esc(s.suffix||'')+'</div><div class="mid" style="font-size:88px;margin-top:10px">'+words(s.title)+'</div>'+(s.sub?'<div class="sub">'+esc(s.sub)+'</div>':'');
-  if(s.kind==='cta')d.innerHTML='<div class="mid" style="font-size:108px">'+words(s.title)+'</div><div class="field"><span class="ty"></span><span class="send">Post</span></div><div class="dm" style="opacity:0">Sent! Your link is in your DMs.</div>';
+  if(s.kind==='cta')d.innerHTML='<div class="mid" style="font-size:108px">'+words(s.title)+'</div><div class="field"><span class="ty"></span><span class="send">Post</span></div><div class="dm" style="opacity:0">'+esc(s.dm||'Sent! Your link is in your DMs.')+'</div>';
   root.appendChild(d);return d});
 window.setT=function(t){
   let cur=-1;POST.scenes.forEach((s,i)=>{if(t>=starts[i]-.001)cur=i});

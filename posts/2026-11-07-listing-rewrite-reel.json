@@ -1,0 +1,12 @@
+{
+  "id": "2026-11-07-listing-rewrite-reel",
+  "date": "2026-11-07",
+  "type": "motion",
+  "keyword": "SELLER",
+  "scenes": [
+    {"kind": "hook", "title": "Same candle. Two listings.", "seconds": 3},
+    {"kind": "compare", "title": "One of them **sells**", "beforeLabel": "Listing 1", "before": "Handmade soy candle. High quality. Great gift for anyone! Smells amazing.", "afterLabel": "Listing 2, after a listing prompt (example)", "after": "Cedar and clove soy candle, hand-poured into an 8 oz tin. Smells like a cabin in October. Trim the wick to a quarter inch before each burn. Ships in 2 days.", "seconds": 12},
+    {"kind": "cta", "title": "Want the **listing prompt** pack?", "dm": "Counted! The pack with the most comments gets built first.", "seconds": 4.5}
+  ],
+  "caption": "Same candle, two listings. Specific details help a shopper picture it. 🕯️\n\nThe second listing came from a prompt: give the product facts, the buyer, and the feeling, and ask for specifics instead of adjectives.\n\nSell online? Comment SELLER and I'll build a pack of product-listing prompts if enough of you ask. Only describe what is true about your product.\n\nThe product and wording are examples.\n\n#etsyseller #smallbusiness #onlineseller #productdescription #shopifyseller #chatgptprompts #claudeai #handmadebusiness"
+}

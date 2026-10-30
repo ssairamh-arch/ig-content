@@ -1,0 +1,14 @@
+{
+  "id": "2026-11-05-resume-prompt-carousel",
+  "date": "2026-11-05",
+  "type": "carousel",
+  "keyword": "RESUME",
+  "slides": [
+    {"kind": "hook", "title": "\"Make my resume better\" is the worst prompt you can type", "sub": "Here are 3 that actually work."},
+    {"kind": "prompt", "n": 1, "title": "Tailor it to one job", "prompt": "Here is a job post: [paste]. Here is my resume: [paste]. List the 5 skills the post asks for most, then rewrite my top 3 bullets to show those skills. Use only what is true in my resume.", "tip": "a resume aimed at one job beats a general one."},
+    {"kind": "prompt", "n": 2, "title": "Turn a duty into a result", "prompt": "Rewrite this bullet so it shows what changed because of my work: [paste bullet]. Ask me 3 questions about numbers, time saved, or people helped, then write 2 versions using my answers.", "tip": "it asks you for the facts instead of inventing them."},
+    {"kind": "prompt", "n": 3, "title": "Check it like a recruiter", "prompt": "Act as a recruiter hiring for [job title]. Read my resume: [paste]. Tell me what you notice in the first 10 seconds, what is missing, and what makes you hesitate.", "tip": "you see what a stranger sees."},
+    {"kind": "cta", "title": "Want a full **resume prompt pack**?", "sub": "Comment RESUME. If enough of you ask, I'll build it first."}
+  ],
+  "caption": "\"Make my resume better\" gives you a generic resume. Ask for something specific instead. 👇\n\n1️⃣ Tailor it to one job\n2️⃣ Turn a duty into a result\n3️⃣ Check it like a recruiter\n\nSave this for your next application. Always keep your resume truthful and check everything the AI writes.\n\n💬 Want a full resume prompt pack? Comment RESUME. If enough of you ask, I'll build it next.\n\n#resume #jobsearch #careeradvice #chatgptprompts #claudeai #jobseekers #interviewtips #careertips"
+}
