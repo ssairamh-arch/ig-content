@@ -16,7 +16,8 @@ for (const p of products) {
       name: p.name, price: Math.round(p.price_usd * 100), description: p.description,
       tags: (p.tags || []).join(','), published: 'false',
     });
-    out.push({ json: { name: p.name, status: 'draft created', id: r.product?.id, url: r.product?.short_url } });
+    if (!r.success) { out.push({ json: { name: p.name, status: 'NOT created', gumroad_said: r } }); continue; }
+    out.push({ json: { name: p.name, status: 'draft created', id: r.product?.id, url: r.product?.short_url, published: r.product?.published, raw: r.product } });
   } catch (e) { out.push({ json: { name: p.name, status: 'failed', error: e.message, body: e.response?.body ?? null } }); }
 }
 return out;
