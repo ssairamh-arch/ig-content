@@ -1,8 +1,15 @@
 [
   {
-    "name": "TEST - delete me",
-    "price_usd": 1,
-    "description": "<p>API test product. Safe to delete.</p>",
-    "tags": ["test"]
+    "name": "AI for Freelancers: 50 Prompts to Land and Keep Clients",
+    "price_usd": 12,
+    "description": "<p><strong>Stop staring at a blank page every time a client needs a message.</strong></p><p><em>AI for Freelancers</em> is a 16-page PDF with 50 ready-to-use prompts for ChatGPT, Claude, Gemini, or any AI chat tool. Copy a prompt, fill in the highlighted brackets with your details, and get a solid first draft in seconds.</p><p><strong>What's inside (50 prompts in 8 sections)</strong></p><ul><li>Find Clients (6): pick a niche, build a target list, check a prospect fast</li><li>Outreach and Pitching (7): cold emails, subject lines, follow-ups, LinkedIn notes</li><li>Proposals and Pricing (7): one-page proposals, three-tier pricing, handling &quot;too expensive&quot;, raising your rates</li><li>Discovery Calls (5): call prep, budget questions, red-flag checks, same-day follow-ups</li><li>Delivering the Work (6): kickoff emails, weekly updates, saying no to extra work, handover notes</li><li>Getting Paid (5): invoice emails, polite and firm reminders, payment terms, deposits</li><li>Reviews and Referrals (5): testimonial and referral requests, case studies</li><li>Positioning and Productivity (9): your bio, service page, portfolio copy, weekly plan, monthly review</li></ul><p><strong>Who it's for:</strong> freelancers and solo service providers who want to spend less time on admin messages and more time on client work.</p><p><strong>Good to know:</strong> prompts help you draft faster. They don't guarantee clients or income, and they aren't legal, tax, or financial advice.</p>",
+    "tags": [
+      "freelance",
+      "ai prompts",
+      "chatgpt",
+      "claude",
+      "cold email",
+      "proposals"
+    ]
   }
 ]
