@@ -1,0 +1,16 @@
+{
+  "id": "2026-11-02-cold-email-openers",
+  "date": "2026-11-02",
+  "type": "carousel",
+  "keyword": "PROMPTS",
+  "slides": [
+    {"kind": "hook", "kicker": "Cold email · ChatGPT / Claude", "title": "5 prompts that write cold emails people **actually reply to**", "sub": "Copy, paste, fill in the brackets. Save this for your next outreach day."},
+    {"kind": "prompt", "n": 1, "title": "The personal first line", "prompt": "Read this about [prospect name]: [paste LinkedIn about / recent post]. Write 3 opening lines for a cold email that reference one specific detail. Max 20 words each. No flattery.", "tip": "a real detail proves it isn't a mass email."},
+    {"kind": "prompt", "n": 2, "title": "The pain-point angle", "prompt": "I sell [your offer] to [job title] at [type of company]. List the 5 most expensive problems they face weekly, ranked by how often they'd complain about it to a friend.", "tip": "you pitch the problem they already feel, not your feature list."},
+    {"kind": "prompt", "n": 3, "title": "The 90-word email", "prompt": "Write a cold email under 90 words to [prospect] about [problem]. Structure: 1 personal line, 1 problem line, 1 proof line ([result you got]), 1 low-effort question. No links.", "tip": "short emails get read on a phone."},
+    {"kind": "prompt", "n": 4, "title": "The subject line test", "prompt": "Give me 10 subject lines for this email: [paste email]. 2-5 words, lowercase, no punctuation tricks. Then pick the 3 most likely to be opened and say why.", "tip": "boring-looking subjects look like a colleague wrote them."},
+    {"kind": "prompt", "n": 5, "title": "The no-reply follow-up", "prompt": "Write a 2-sentence follow-up to this email: [paste email]. Add one new useful idea for [prospect's company]. Do not say 'just following up' or 'bumping this'.", "tip": "a follow-up that adds value earns the reply."},
+    {"kind": "cta", "kicker": "These are 5 of 50", "title": "Want the full **Cold Email Operating System**?", "sub": "and the 50-prompt pack lands in your DMs."}
+  ],
+  "caption": "Cold emails don't fail because of your offer. They fail in the first line. 👇\n\n5 prompts I use with ChatGPT / Claude to write emails that get replies:\n\n1️⃣ The personal first line\n2️⃣ The pain-point angle\n3️⃣ The 90-word email\n4️⃣ The subject line test\n5️⃣ The no-reply follow-up\n\nSave this so it's there on your next outreach day.\n\n💬 Comment PROMPTS and I'll DM you the full 50-prompt Cold Email Operating System.\n\n#coldemail #chatgptprompts #aiprompts #salestips #leadgeneration #freelancetips #b2bsales #emailmarketing #claudeai #promptengineering"
+}

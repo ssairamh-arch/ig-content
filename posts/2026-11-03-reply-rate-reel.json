@@ -1,0 +1,13 @@
+{
+  "id": "2026-11-03-reply-rate-reel",
+  "date": "2026-11-03",
+  "type": "reel",
+  "keyword": "PROMPTS",
+  "slides": [
+    {"kind": "hook", "kicker": "Stop scrolling if you send cold emails", "title": "One prompt that **doubled** my reply rate", "seconds": 3},
+    {"kind": "text", "kicker": "The problem", "title": "Most cold emails are about **you**.", "sub": "Your company. Your product. Your calendar link.", "seconds": 3.5},
+    {"kind": "prompt", "n": 1, "title": "Flip it with this", "prompt": "Rewrite this cold email so every sentence is about [prospect]'s problem, not my product. Remove every 'I' and 'we' you can. Keep it under 80 words: [paste email]", "tip": "people reply to emails about themselves.", "seconds": 7},
+    {"kind": "cta", "kicker": "49 more like this", "title": "Get the full **Cold Email Operating System**", "sub": "and I'll DM you the pack.", "seconds": 3.5}
+  ],
+  "caption": "Your cold email is probably about you. Here's the one prompt that fixes it. ✍️\n\nPaste your email in, and it rewrites every line around the prospect's problem.\n\n💬 Comment PROMPTS for the other 49 prompts in my Cold Email Operating System.\n\n#coldemail #chatgpt #aiprompts #salestips #productivityhacks #promptengineering #freelancer #b2b"
+}

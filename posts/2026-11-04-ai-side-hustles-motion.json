@@ -1,0 +1,47 @@
+{
+  "id": "2026-11-04-ai-side-hustles-motion",
+  "date": "2026-11-04",
+  "type": "motion",
+  "keyword": "PROMPTS",
+  "scenes": [
+    {
+      "kind": "hook",
+      "kicker": "Trending in 2026",
+      "title": "3 AI side hustles you can start **this weekend**",
+      "seconds": 3.2
+    },
+    {
+      "kind": "stat",
+      "kicker": "The shortcut",
+      "value": 30,
+      "suffix": " sec",
+      "title": "to a **target client list** with one prompt",
+      "seconds": 3.5
+    },
+    {
+      "kind": "list",
+      "kicker": "Start with one",
+      "title": "Pick a **niche**",
+      "items": [
+        "AI receipts + bookkeeping cleanup",
+        "Short-form clips for local gyms",
+        "Cold email setup for agencies"
+      ],
+      "seconds": 5
+    },
+    {
+      "kind": "prompt",
+      "title": "Find your first **client**",
+      "prompt": "Act as a [niche] expert. List 10 types of local businesses that pay for [service], what each one struggles with, and one sentence I can send them on Instagram.",
+      "tip": "you get a ready target list in 30 seconds.",
+      "seconds": 7
+    },
+    {
+      "kind": "cta",
+      "kicker": "50 prompts, free to grab",
+      "title": "Get the **full pack** in your DMs",
+      "seconds": 4.5
+    }
+  ],
+  "caption": "3 AI side hustles you can start this weekend (and the prompt to find your first client). \ud83d\ude80\n\nPick one niche, run the prompt, send 5 messages. That's the whole plan.\n\n\ud83d\udcac Comment PROMPTS and I'll DM you the full Cold Email Operating System.\n\n#aisidehustle #sidehustle2026 #chatgptprompts #makemoneyonline #freelancing #aitools #promptengineering"
+}

@@ -1,0 +1,125 @@
+{
+  "name": "Instagram Auto Post",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 9
+            }
+          ]
+        }
+      },
+      "name": "Every day 9am",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1",
+              "name": "token",
+              "value": "PASTE_INSTAGRAM_ACCESS_TOKEN_HERE",
+              "type": "string"
+            },
+            {
+              "id": "2",
+              "name": "igUserId",
+              "value": "17841431195175296",
+              "type": "string"
+            },
+            {
+              "id": "3",
+              "name": "timezone",
+              "value": "America/New_York",
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "name": "Config",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        220,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://raw.githubusercontent.com/ssairamh-arch/ig-content/main/queue.json",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          }
+        }
+      },
+      "name": "Get queue",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        440,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Body of the n8n Code node \"Publish due post\". Runs once per schedule tick.\nconst cfg = $('Config').first().json;\nconst queue = $input.first().json.queue ?? $input.all().map(i => i.json);\nconst store = $getWorkflowStaticData('global');\nstore.posted = store.posted || [];\nconst API = 'https://graph.instagram.com/v21.0';\nconst today = new Date().toLocaleDateString('en-CA', { timeZone: cfg.timezone });\n\nconst due = queue.filter(p => p.date <= today && !store.posted.includes(p.id)).sort((a, b) => a.date.localeCompare(b.date))[0];\nif (!due) return [{ json: { status: 'nothing due', today } }];\n\nconst call = (method, path, qs) => this.helpers.httpRequest({ method, url: `${API}${path}`, qs: { access_token: cfg.token, ...qs }, json: true });\nconst wait = (ms) => new Promise(r => setTimeout(r, ms));\nasync function ready(id) {\n  for (let i = 0; i < 40; i++) {\n    const s = await call('GET', `/${id}`, { fields: 'status_code' });\n    if (s.status_code === 'FINISHED') return;\n    if (s.status_code === 'ERROR' || s.status_code === 'EXPIRED') throw new Error(`container ${id}: ${s.status_code}`);\n    await wait(5000);\n  }\n  throw new Error(`container ${id} not ready in time`);\n}\n\nlet creation;\nif (due.type === 'reel') {\n  const c = await call('POST', `/${cfg.igUserId}/media`, { media_type: 'REELS', video_url: due.media[0], caption: due.caption, share_to_feed: true });\n  await ready(c.id); creation = c.id;\n} else {\n  const kids = [];\n  for (const url of due.media) { const c = await call('POST', `/${cfg.igUserId}/media`, { image_url: url, is_carousel_item: true }); kids.push(c.id); }\n  for (const k of kids) await ready(k);\n  const c = await call('POST', `/${cfg.igUserId}/media`, { media_type: 'CAROUSEL', children: kids.join(','), caption: due.caption });\n  await ready(c.id); creation = c.id;\n}\nconst pub = await call('POST', `/${cfg.igUserId}/media_publish`, { creation_id: creation });\nstore.posted.push(due.id);\nreturn [{ json: { status: 'published', id: due.id, instagramMediaId: pub.id } }];\n"
+      },
+      "name": "Publish due post",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        660,
+        0
+      ]
+    }
+  ],
+  "connections": {
+    "Every day 9am": {
+      "main": [
+        [
+          {
+            "node": "Config",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Config": {
+      "main": [
+        [
+          {
+            "node": "Get queue",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get queue": {
+      "main": [
+        [
+          {
+            "node": "Publish due post",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  }
+}
