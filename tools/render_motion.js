@@ -26,6 +26,9 @@ html,body{width:1080px;height:1920px;background:#C6F43A;color:#0F1A12;font-famil
 .stat{font:800 300px/1 'Inter Display';letter-spacing:-.06em;color:#C6F43A;white-space:nowrap}
 .field{background:#fff;color:#0F1A12;border-radius:70px;padding:36px 48px;font:600 52px Inter;margin-top:50px;display:flex;justify-content:space-between;align-items:center}
 .field .send{color:#0F1A12;background:#C6F43A;border-radius:60px;padding:10px 34px;font-weight:800}
+.cmp{background:#fff;border-radius:34px;padding:42px 48px;margin-top:34px;font:500 38px/1.45 Inter;color:#3A463D}
+.cmp .tag{font:800 34px 'Inter Display';letter-spacing:-.02em;color:#0F1A12;margin-bottom:12px}
+.cmp.after{background:#0F1A12;color:#fff}.cmp.after .tag{color:#C6F43A}
 .dm{background:#C6F43A;color:#0F1A12;border-radius:36px;padding:38px 44px;font:700 44px/1.3 Inter;margin-top:36px}
 </style></head><body>
 <div class="handle" id="h">@prompt.stackdaily</div>
@@ -39,13 +42,14 @@ const easeBack=x=>{x=clamp(x);const c=1.7;return 1+(c+1)*Math.pow(x-1,3)+c*Math.
 const esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
 const words=s=>s.replace(/\\*\\*/g,'').split(' ').filter(Boolean).map(w=>'<span class="w">'+esc(w)+'</span>').join('');
 const chipify=s=>esc(s).replace(/\\[(.+?)\\]/g,'<span class="chip">[$1]</span>');
-const FIELD={hook:'lime',text:'white',list:'tint',prompt:'white',stat:'ink',cta:'ink'};
+const FIELD={compare:'lime',hook:'lime',text:'white',list:'tint',prompt:'white',stat:'ink',cta:'ink'};
 let total=0;const starts=POST.scenes.map(s=>{const st=total;total+=s.seconds;return st});
 const root=document.getElementById('scenes');
 const els=POST.scenes.map((s,i)=>{const d=document.createElement('div');let f=FIELD[s.kind];if(s.kind==='prompt'&&i%2)f='tint';d.className='scene '+f;
   if(s.kind==='hook'||s.kind==='text')d.innerHTML='<div class="'+(s.kind==='hook'?'big':'mid')+'">'+words(s.title)+'</div>'+(s.sub?'<div class="sub">'+esc(s.sub)+'</div>':'');
   if(s.kind==='prompt')d.innerHTML='<div class="mid" style="font-size:104px">'+words(s.title)+'</div><div class="card"><div class="typed"></div></div>'+(s.tip?'<div class="tip"><b>Why it works:</b> '+esc(s.tip)+'</div>':'');
   if(s.kind==='list')d.innerHTML='<div class="mid" style="font-size:112px">'+words(s.title)+'</div>'+s.items.map((t,k)=>'<div class="item"><i>'+(k+1)+'</i><span>'+esc(t)+'</span></div>').join('');
+  if(s.kind==='compare')d.innerHTML='<div class="mid" style="font-size:84px">'+words(s.title)+'</div><div class="cmp bef"><div class="tag">'+esc(s.beforeLabel||'Before')+'</div>'+esc(s.before)+'</div><div class="cmp after"><div class="tag">'+esc(s.afterLabel||'After')+'</div><span class="aft"></span></div>';
   if(s.kind==='stat')d.innerHTML='<div class="stat"><span class="n">0</span>'+esc(s.suffix||'')+'</div><div class="mid" style="font-size:88px;margin-top:10px">'+words(s.title)+'</div>'+(s.sub?'<div class="sub">'+esc(s.sub)+'</div>':'');
   if(s.kind==='cta')d.innerHTML='<div class="mid" style="font-size:108px">'+words(s.title)+'</div><div class="field"><span class="ty"></span><span class="send">Post</span></div><div class="dm" style="opacity:0">Sent! Your link is in your DMs.</div>';
   root.appendChild(d);return d});
@@ -62,6 +66,8 @@ window.setT=function(t){
     if(s.kind==='prompt'){const full=s.prompt,start=.9,cps=full.length/Math.max(1,s.seconds-start-1.8);const n=Math.floor(clamp((lt-start)*cps,0,full.length));
       el.querySelector('.typed').innerHTML=chipify(full.slice(0,n))+(Math.floor(lt*2)%2===0||n<full.length?'<span class="cur"></span>':'')}
     if(s.kind==='list')el.querySelectorAll('.item').forEach((it,k)=>{const p=easeOut((lt-.7-k*.55)/.4);it.style.opacity=p;it.style.transform='translateX('+((1-p)*140)+'px)'});
+    if(s.kind==='compare'){const b=el.querySelector('.bef'),a=el.querySelector('.after'),pb=easeOut((lt-.9)/.5),pa=easeOut((lt-2.6)/.5);b.style.opacity=pb;b.style.transform='translateY('+((1-pb)*60)+'px)';a.style.opacity=pa;a.style.transform='translateY('+((1-pa)*60)+'px)';
+      const full=s.after,st=3.3,cps=full.length/Math.max(1,s.seconds-st-1.2),n=Math.floor(clamp((lt-st)*cps,0,full.length));el.querySelector('.aft').innerHTML=chipify(full.slice(0,n))+(n<full.length?'<span class="cur" style="background:#C6F43A"></span>':'')}
     if(s.kind==='stat')el.querySelector('.n').textContent=Math.round(s.value*easeOut((lt-.3)/1.4));
     if(s.kind==='cta'){const word=POST.keyword||'PROMPTS',n=Math.floor(clamp((lt-1)*9,0,word.length));
       el.querySelector('.ty').innerHTML=esc(word.slice(0,n))+(lt<1+word.length/9+.6?'<span class="cur"></span>':'');

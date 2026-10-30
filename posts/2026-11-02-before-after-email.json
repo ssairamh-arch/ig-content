@@ -1,0 +1,12 @@
+{
+  "id": "2026-11-02-before-after-email",
+  "date": "2026-11-02",
+  "type": "motion",
+  "keyword": "FREELANCE",
+  "scenes": [
+    {"kind": "hook", "title": "Same cold email. One prompt later.", "seconds": 3},
+    {"kind": "compare", "title": "Watch it **change**", "before": "Hi, I run a marketing agency and wanted to see if you'd be interested in our services. We have worked with many clients. Let me know if you want to chat.", "after": "Hi Dana, I noticed your last three newsletters all link to the same page. A small change to the first line could help each one earn its click. I rewrote one as an example. Want me to send it?", "afterLabel": "After the 90-word email prompt", "seconds": 12},
+    {"kind": "cta", "title": "Get the **prompt** and 49 more", "seconds": 4.5}
+  ],
+  "caption": "Same cold email, before and after one prompt. ✍️\n\nThe first one talks about us. The second one talks about her, and ends with an easy question.\n\nThe prompt is in AI for Freelancers, a 50-prompt PDF for pitching, pricing, and getting paid.\n\n💬 Comment FREELANCE and I'll DM you the link.\n\nThe example is illustrative. Results vary.\n\n#coldemail #freelancing #freelancetips #chatgptprompts #claudeai #copywriting #smallbusiness #salestips"
+}
