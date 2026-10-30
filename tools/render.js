@@ -14,64 +14,55 @@ const rich = (s) => esc(s).replace(/\*\*(.+?)\*\*/g, '<mark>$1</mark>').replace(
 // [brackets] inside prompts -> fill-in chips
 const promptText = (s) => esc(s).replace(/\[(.+?)\]/g, '<span class="fill">[$1]</span>').replace(/\n/g, '<br>');
 
+// v2 look: flat fields (lime / white / soft tint / ink), big Inter Display type, no labels, rules, grids or glows.
+const LIME = '#C6F43A', INK = '#0F1A12', TINT = '#F1F7DC', GREY = '#3A463D';
+const plain = (s) => esc(s).replace(/\*\*(.+?)\*\*/g, '$1').replace(/\n/g, '<br>');
+
 function css(w, h) {
   const tall = h > 1500;
   return `
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{width:${w}px;height:${h}px}
-  body{background:#0B0D12;color:#F4F1EA;font-family:'Inter',sans-serif;overflow:hidden;position:relative}
-  .grid{position:absolute;inset:0;background-image:linear-gradient(#ffffff08 1px,transparent 1px),linear-gradient(90deg,#ffffff08 1px,transparent 1px);background-size:60px 60px}
-  .glow{position:absolute;width:900px;height:900px;border-radius:50%;background:radial-gradient(circle,#C6F43a22,transparent 65%);right:-380px;top:-380px}
-  .frame{position:absolute;inset:0;padding:${tall ? '200px 80px 260px' : '90px 84px'};display:flex;flex-direction:column}
-  .top{display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono';font-size:26px;color:#9AA0AA;letter-spacing:.04em}
-  .top b{color:#C6F43A;font-weight:600}
+  body{font-family:'Inter',sans-serif;color:${INK};overflow:hidden;position:relative}
+  .lime{background:${LIME}}.white{background:#fff}.tint{background:${TINT}}.ink{background:${INK};color:#fff}
+  .frame{position:absolute;inset:0;padding:${tall ? '230px 88px 330px' : '96px 88px 96px'};display:flex;flex-direction:column}
+  .handle{font:700 30px 'Inter Display';letter-spacing:-.01em}
   .body{flex:1;display:flex;flex-direction:column;justify-content:center}
-  mark{background:none;color:#C6F43A}
-  .kicker{font-family:'JetBrains Mono';font-size:30px;color:#C6F43A;letter-spacing:.08em;text-transform:uppercase;margin-bottom:36px}
-  h1{font-family:'Inter Display';font-weight:800;font-size:${tall ? 104 : 96}px;line-height:1.02;letter-spacing:-.035em}
-  .sub{font-size:38px;line-height:1.35;color:#B9BEC7;margin-top:44px;max-width:860px}
-  .num{font-family:'Inter Display';font-weight:800;font-size:150px;line-height:1;color:#C6F43A;letter-spacing:-.04em}
-  h2{font-family:'Inter Display';font-weight:700;font-size:62px;line-height:1.08;letter-spacing:-.025em;margin:18px 0 40px}
-  .card{background:#151922;border:2px solid #262C38;border-radius:28px;padding:44px 46px;position:relative}
-  .card .label{position:absolute;top:-20px;left:40px;background:#C6F43A;color:#0B0D12;font-family:'JetBrains Mono';font-weight:700;font-size:22px;padding:6px 16px;border-radius:8px;letter-spacing:.06em}
-  .card p{font-family:'JetBrains Mono';font-size:${tall ? 33 : 31}px;line-height:1.5;color:#E8E6DF}
-  .fill{color:#0B0D12;background:#F4F1EA;border-radius:6px;padding:0 8px}
-  .tip{margin-top:36px;font-size:30px;line-height:1.4;color:#9AA0AA}
-  .tip b{color:#F4F1EA}
-  .cta-box{border:3px dashed #C6F43A;border-radius:32px;padding:60px 56px;margin-top:20px}
-  .cta-word{display:inline-block;background:#C6F43A;color:#0B0D12;font-family:'Inter Display';font-weight:800;font-size:110px;letter-spacing:-.03em;padding:4px 30px;border-radius:18px;margin:26px 0}
-  .cta-box p{font-size:38px;line-height:1.35;color:#B9BEC7}
-  .foot{display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono';font-size:24px;color:#6B7280}
-  .dots{display:flex;gap:10px}.dots i{width:12px;height:12px;border-radius:50%;background:#2A303C}.dots i.on{background:#C6F43A;width:36px;border-radius:8px}
-  .swipe{color:#C6F43A}
+  h1{font:800 ${tall ? 128 : 146}px/.95 'Inter Display';letter-spacing:-.05em}
+  .sub{font-size:40px;line-height:1.3;font-weight:600;margin-top:44px;max-width:860px}
+  .num{display:inline-flex;align-items:center;justify-content:center;width:132px;height:132px;border-radius:99px;background:${INK};color:${LIME};font:800 84px 'Inter Display';letter-spacing:-.04em;margin-bottom:38px}
+  h2{font:800 ${tall ? 84 : 76}px/1 'Inter Display';letter-spacing:-.04em;margin-bottom:38px}
+  .card{background:#fff;border-radius:30px;padding:42px 46px;font-size:${tall ? 36 : 35}px;line-height:1.5;font-weight:500}
+  .tint .card{background:#fff}.white .card{background:${TINT}}
+  .chip{background:${LIME};border-radius:8px;padding:0 8px;font-weight:700}
+  .tip{margin-top:38px;font-size:34px;line-height:1.4;color:${GREY};font-weight:500}.tip b{color:${INK}}
+  .keyword{display:inline-block;background:${LIME};color:${INK};font:800 150px/1 'Inter Display';letter-spacing:-.04em;padding:18px 44px 26px;border-radius:30px;margin:30px 0}
+  .ink .sub{color:#D7DDD2}
   `;
 }
 
 function slideHTML(post, slide, i, total, w, h) {
-  const dots = Array.from({ length: total }, (_, k) => `<i class="${k === i ? 'on' : ''}"></i>`).join('');
   const isReel = post.type === 'reel';
-  let inner = '';
+  let cls = 'white', inner = '';
   if (slide.kind === 'hook') {
-    inner = `${slide.kicker ? `<div class="kicker">${esc(slide.kicker)}</div>` : ''}<h1>${rich(slide.title)}</h1>${slide.sub ? `<div class="sub">${rich(slide.sub)}</div>` : ''}`;
+    cls = 'lime';
+    inner = `<h1>${plain(slide.title)}</h1>${slide.sub ? `<div class="sub">${plain(slide.sub)}</div>` : ''}`;
   } else if (slide.kind === 'prompt') {
-    inner = `<div class="num">${String(slide.n).padStart(2, '0')}</div><h2>${rich(slide.title)}</h2>
-      <div class="card"><span class="label">PROMPT</span><p>${promptText(slide.prompt)}</p></div>
-      ${slide.tip ? `<div class="tip"><b>Why it works:</b> ${rich(slide.tip)}</div>` : ''}`;
+    cls = slide.n % 2 ? 'white' : 'tint';
+    inner = `<div><span class="num">${slide.n}</span></div><h2>${plain(slide.title)}</h2>
+      <div class="card">${promptText(slide.prompt).replace(/<span class="fill">/g, '<span class="chip">')}</div>
+      ${slide.tip ? `<div class="tip"><b>Why it works:</b> ${plain(slide.tip)}</div>` : ''}`;
   } else if (slide.kind === 'text') {
-    inner = `${slide.kicker ? `<div class="kicker">${esc(slide.kicker)}</div>` : ''}<h2 style="font-size:72px">${rich(slide.title)}</h2>${slide.sub ? `<div class="sub">${rich(slide.sub)}</div>` : ''}`;
+    cls = 'white';
+    inner = `<h1 style="font-size:104px">${plain(slide.title)}</h1>${slide.sub ? `<div class="sub">${plain(slide.sub)}</div>` : ''}`;
   } else if (slide.kind === 'cta') {
-    inner = `<div class="kicker">${esc(slide.kicker || 'Want all of them?')}</div>
-      <h2 style="font-size:70px">${rich(slide.title || 'Get the full prompt pack free in your DMs')}</h2>
-      <div class="cta-box"><p>Comment</p><div class="cta-word">${esc(post.keyword || 'PROMPTS')}</div><p>${rich(slide.sub || "and I'll send you the link.")}</p></div>`;
+    cls = 'ink';
+    inner = `<h2 style="font-size:84px;margin-bottom:20px">${plain(slide.title || 'Get the full prompt pack')}</h2>
+      <div style="font-size:42px;font-weight:600;color:#D7DDD2">Comment</div><div><span class="keyword">${esc(post.keyword || 'PROMPTS')}</span></div>
+      <div class="sub" style="margin-top:0">${plain(slide.sub || "and I'll send you the link.")}</div>`;
   }
-  const last = i === total - 1;
-  return `<!doctype html><html><head><meta charset="utf-8"><style>${css(w, h)}</style></head><body>
-    <div class="grid"></div><div class="glow"></div>
-    <div class="frame">
-      <div class="top"><span><b>●</b> PROMPT STACK DAILY</span><span>${isReel ? '' : `${i + 1}/${total}`}</span></div>
-      <div class="body">${inner}</div>
-      <div class="foot"><span>${HANDLE}</span>${isReel ? '' : `<div class="dots">${dots}</div>`}<span class="swipe">${last || isReel ? '♥ save this' : 'swipe →'}</span></div>
-    </div></body></html>`;
+  return `<!doctype html><html><head><meta charset="utf-8"><style>${css(w, h)}</style></head><body class="${cls}">
+    <div class="frame"><div class="handle">${HANDLE}</div><div class="body">${inner}</div></div></body></html>`;
 }
 
 async function renderPost(browser, id) {
