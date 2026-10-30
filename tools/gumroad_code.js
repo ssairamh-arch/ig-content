@@ -1,7 +1,7 @@
 // Body of the n8n Code node "Create Gumroad drafts". Creates each product in gumroad/products.json as an UNPUBLISHED draft,
 // skipping names that already exist, and returns Gumroad's answer (or its error text) per product.
 const cfg = $('Config').first().json;
-const products = $input.first().json.products ?? $input.first().json;
+const products = $input.all().map(i => i.json);
 const http = (method, url, form) => this.helpers.httpRequest({ method, url, headers: { Authorization: `Bearer ${cfg.gumroadToken}` }, form, json: true });
 
 let existing = [];
