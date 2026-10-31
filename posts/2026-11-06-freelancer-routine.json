@@ -1,0 +1,41 @@
+{
+ "id": "2026-11-06-freelancer-routine",
+ "date": "2026-11-06",
+ "type": "motion",
+ "ai_voice": true,
+ "keyword": "FREELANCE",
+ "scenes": [
+  {
+   "kind": "hook",
+   "title": "The **3-minute** freelancer routine",
+   "seconds": 4,
+   "vo": "The three minute freelancer routine."
+  },
+  {
+   "kind": "list",
+   "title": "Daily. Weekly. Monthly.",
+   "items": [
+    "Daily: one follow-up that adds value",
+    "Weekly: chase every open invoice, politely",
+    "Monthly: ask one happy client for a testimonial"
+   ],
+   "seconds": 14,
+   "vo": "Once a day, send one follow-up that adds something useful. Once a week, chase every open invoice, politely. Once a month, ask one happy client for a testimonial."
+  },
+  {
+   "kind": "text",
+   "title": "Three habits. **Screenshot this.**",
+   "sub": "Send it to a freelancer.",
+   "seconds": 5.5,
+   "vo": "Three habits. Screenshot this, and send it to a freelancer."
+  },
+  {
+   "kind": "cta",
+   "title": "Want the **prompts** for each?",
+   "dm": "Sent! Your link is in your DMs.",
+   "seconds": 6.5,
+   "vo": "Comment freelance and I'll send you fifty prompts."
+  }
+ ],
+ "caption": "The 3-minute freelancer routine. ⏱️\n\nDaily: a follow-up that adds one useful thing.\nWeekly: a polite nudge on every open invoice.\nMonthly: ask one happy client for a testimonial.\n\nSend this to a freelancer friend.\n\n💬 Comment FREELANCE and I'll DM you the AI for Freelancers prompts.\n\nPrompts help you draft faster; edit every draft so it sounds like you. Voiceover is AI-generated.\n\n#freelancing #freelancetips #chatgptprompts #clientwork #smallbusiness #sidehustle"
+}

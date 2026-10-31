@@ -1,0 +1,41 @@
+{
+ "id": "2026-11-04-same-email-one-prompt",
+ "date": "2026-11-04",
+ "type": "motion",
+ "ai_voice": true,
+ "keyword": "PROMPTS",
+ "scenes": [
+  {
+   "kind": "hook",
+   "title": "Same cold email. **One prompt** later.",
+   "seconds": 4,
+   "vo": "Same cold email. One prompt later."
+  },
+  {
+   "kind": "compare",
+   "title": "Same **email**",
+   "beforeLabel": "Before (example)",
+   "afterLabel": "After (example)",
+   "before": "Hi, I'm Sam from GrowthCo. We help companies like yours scale with innovative solutions. Do you have time for a call?",
+   "after": "Hi Priya, saw your team just opened a second studio. Booking new members across two sites is usually the hard part. Want a 3-line idea for it?",
+   "seconds": 10.5,
+   "vo": "The first one is about me. The second one is about them."
+  },
+  {
+   "kind": "prompt",
+   "title": "The **prompt**",
+   "prompt": "Rewrite this cold email so the first sentence is about the reader's problem, cut it under 90 words, and end with one yes or no question.",
+   "tip": "reader first, one easy question last.",
+   "seconds": 10,
+   "vo": "One prompt did that. Make the first sentence about the reader's problem, and end with one yes or no question."
+  },
+  {
+   "kind": "cta",
+   "title": "Get the **Cold Email pack**",
+   "dm": "Sent! Your link is in your DMs.",
+   "seconds": 6.5,
+   "vo": "Comment prompts for the full cold email pack."
+  }
+ ],
+ "caption": "Same email. One prompt. The first one talks about Sam. The second talks about Priya. 👀\n\nBoth emails are examples.\n\nSend this to someone who writes cold emails.\n\n💬 Comment PROMPTS and I'll DM you the Cold Email Operating System.\n\nPrompts help you draft faster; edit every draft so it sounds like you. Voiceover is AI-generated.\n\n#coldemail #salestips #chatgptprompts #b2bsales #outbound #sidehustle"
+}

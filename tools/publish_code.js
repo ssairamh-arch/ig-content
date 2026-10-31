@@ -23,7 +23,7 @@ async function ready(id) {
 
 let creation;
 if (due.type === 'reel') {
-  const c = await call('POST', `/${cfg.igUserId}/media`, { media_type: 'REELS', video_url: due.media[0], caption: due.caption, share_to_feed: true });
+  const c = await call('POST', `/${cfg.igUserId}/media`, { media_type: 'REELS', video_url: due.media[0], caption: due.caption, share_to_feed: true, is_ai_generated: due.ai_voice === true });
   await ready(c.id); creation = c.id;
 } else {
   const kids = [];

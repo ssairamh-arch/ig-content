@@ -1,0 +1,43 @@
+{
+ "id": "2026-11-03-ghost-these-openers",
+ "date": "2026-11-03",
+ "type": "motion",
+ "ai_voice": true,
+ "keyword": "PROMPTS",
+ "scenes": [
+  {
+   "kind": "hook",
+   "title": "Cold email lines to **ghost** forever",
+   "seconds": 4,
+   "vo": "Four cold email lines to ghost forever."
+  },
+  {
+   "kind": "list",
+   "title": "Ghost these",
+   "items": [
+    "“Hope this finds you well”",
+    "“Pick your brain”",
+    "“Just bumping this”",
+    "“Leading provider of…”"
+   ],
+   "seconds": 8,
+   "vo": "Hope this finds you well. Pick your brain. Just bumping this. And anything with, leading provider."
+  },
+  {
+   "kind": "prompt",
+   "title": "Write this **instead**",
+   "prompt": "Write a first line for a cold email to [name] at [company]. Mention one real detail about their company and one problem they likely have. No flattery.",
+   "tip": "specific beats polite. They can tell you looked.",
+   "seconds": 11,
+   "vo": "Give the AI one real detail about the person, and one problem they probably have. Ban flattery. That's your first line."
+  },
+  {
+   "kind": "cta",
+   "title": "Get the **Cold Email pack**",
+   "dm": "Sent! Your link is in your DMs.",
+   "seconds": 6.5,
+   "vo": "Comment prompts and I'll send you the cold email pack."
+  }
+ ],
+ "caption": "Four cold email lines to ghost in 2026. 👻\n\nThe fix is one specific detail plus one likely problem. Specific beats polite.\n\nSend this to the friend who still opens with “Hope this finds you well.”\n\n💬 Comment PROMPTS and I'll DM you the Cold Email Operating System.\n\nPrompts help you draft faster; edit every draft so it sounds like you. Voiceover is AI-generated.\n\n#coldemail #salestips #chatgptprompts #b2bsales #outbound #sidehustle"
+}

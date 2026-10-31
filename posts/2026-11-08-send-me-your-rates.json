@@ -1,0 +1,38 @@
+{
+ "id": "2026-11-08-send-me-your-rates",
+ "date": "2026-11-08",
+ "type": "motion",
+ "ai_voice": true,
+ "keyword": "FREELANCE",
+ "scenes": [
+  {
+   "kind": "hook",
+   "title": "“Send me your rates” is **not a question.**",
+   "seconds": 4.5,
+   "vo": "Send me your rates is not a question."
+  },
+  {
+   "kind": "prompt",
+   "title": "Reply **like this**",
+   "prompt": "Write a short reply to a client who asked for my rates before describing the project. Ask two scoping questions first, and give a price range only after they answer.",
+   "tip": "you stop quoting blind and start scoping.",
+   "seconds": 11.5,
+   "vo": "Paste this. The AI asks two scoping questions first, and shares a price range only after they answer. You stop quoting blind."
+  },
+  {
+   "kind": "text",
+   "title": "Same client. **Better quote.**",
+   "sub": "Send this to a freelancer who undercharges.",
+   "seconds": 5.8,
+   "vo": "Same client. Better quote. Send this to a freelancer who undercharges."
+  },
+  {
+   "kind": "cta",
+   "title": "Want the other **49**?",
+   "dm": "Sent! Your link is in your DMs.",
+   "seconds": 6.5,
+   "vo": "Comment freelance and I'll send you the full set."
+  }
+ ],
+ "caption": "“Send me your rates” is not a question. It's a request to quote blind. 🙅\n\nAsk two scoping questions first, then give the range.\n\nSend this to a freelancer who undercharges.\n\n💬 Comment FREELANCE and I'll DM you the AI for Freelancers prompts.\n\nPrompts help you draft faster; edit every draft so it sounds like you. Voiceover is AI-generated.\n\n#freelancing #freelancetips #chatgptprompts #pricing #clientwork #sidehustle"
+}

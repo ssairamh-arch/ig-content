@@ -1,0 +1,46 @@
+{
+ "id": "2026-11-02-message-from-a",
+ "date": "2026-11-02",
+ "type": "motion",
+ "ai_voice": true,
+ "keyword": "FREELANCE",
+ "scenes": [
+  {
+   "kind": "hook",
+   "title": "I saw you send **“just checking in”** to a client. Third time. – A",
+   "seconds": 5,
+   "vo": "I saw you send, just checking in, to the same client. Three times."
+  },
+  {
+   "kind": "text",
+   "title": "Stop.",
+   "sub": "Paste this instead.",
+   "seconds": 3.2,
+   "vo": "Stop. Paste this instead."
+  },
+  {
+   "kind": "prompt",
+   "title": "Follow up **without** begging",
+   "prompt": "Write a follow-up email to [client] about [project]. Add one useful thing: a link, a quick idea or a small question. Keep it under 70 words. End with one easy yes-or-no question.",
+   "tip": "one easy question is much simpler to answer than “any update?”",
+   "seconds": 10,
+   "vo": "Ask the AI for a follow-up that adds one useful thing, like a link or a quick idea, and ends with one easy question."
+  },
+  {
+   "kind": "text",
+   "title": "Same client. **Better reply.**",
+   "sub": "Send this to a freelancer who needs it.",
+   "seconds": 5.8,
+   "vo": "Same client. Better reply. Send this to the freelancer who needs it."
+  },
+  {
+   "kind": "cta",
+   "kicker": "",
+   "title": "Want the other **49**?",
+   "dm": "Sent! Your link is in your DMs.",
+   "seconds": 6.5,
+   "vo": "I put fifty of these in a PDF. Comment freelance and I'll send it to you."
+  }
+ ],
+ "caption": "Anonymous message, but it's right. 😮‍💨\n\nThe trick is the last line: one easy question. Clients answer those.\n\nThis is one of 50 prompts in AI for Freelancers (pitching, pricing, scope, getting paid).\n\n💬 Comment FREELANCE and I'll DM you the link.\n\nPrompts help you draft faster; edit every draft so it sounds like you. Voiceover is AI-generated.\n\n#freelancing #freelancetips #chatgptprompts #clientwork #smallbusiness #sidehustle"
+}
